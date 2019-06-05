@@ -2,6 +2,26 @@
 
 This project demonstrates how [Apollo Federation](https://blog.apollographql.com/apollo-federation-f260cf525d21) can be used to implement a "Hub & Spoke" pattern with GraphQL services.
 
+To run:
+```
+npm install
+
+npm run dev
+```
+
+Then go to http://localhost:3001 and run the following query:
+```
+{
+  todo(id: "2") {
+    title
+    user {
+      id
+      name
+    }
+  }
+}
+```
+
 ## What does Hub & Spoke even mean?
 A **Hub** is a centralized GraphQL service that captures common models like Accounts, Users, Organizations, etc.
 
