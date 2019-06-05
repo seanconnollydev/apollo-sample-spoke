@@ -13,12 +13,14 @@
     "graphql": "14.3.1"
   },
   "devDependencies": {
-    "micro": "9.3.4"
+    "concurrently": "4.1.0",
+    "micro": "9.3.4",
+    "wait-on": "3.2.0"
   },
   "scripts": {
-    "dev": "npm run spoke & npm run gateway",
+    "dev": "concurrently \"npm run spoke\" \"npm run gateway\"",
     "spoke": "micro -l tcp://0.0.0.0:3002",
-    "gateway": "node gateway.js"
+    "gateway": "wait-on tcp:3002 && node gateway.js"
   },
   "repository": {
     "type": "git",
