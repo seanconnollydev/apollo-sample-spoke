@@ -1,6 +1,11 @@
-const { ApolloServer, gql } = require('apollo-server-micro');
+const express = require('express');
+const { ApolloServer, gql } = require('apollo-server-express');
 const { buildFederatedSchema } = require("@apollo/federation");
 const { TodosAPI } = require('./TodosAPI');
+
+const port = process.env.PORT || 3002;
+
+const server = express();
 
 const typeDefs = gql`
   type Query {
@@ -31,7 +36,7 @@ const resolvers = {
   },
 }
 
-const server = new ApolloServer({
+const apolloServer = new ApolloServer({
   schema: buildFederatedSchema([
     {
       typeDefs,
@@ -45,4 +50,9 @@ const server = new ApolloServer({
   playground: true
 })
 
-module.exports = server.createHandler();
+apolloServer.applyMiddleware({ app: server });
+
+server.listen(port, (err) => {
+  if (err) throw err;
+  console.log(`> Spoke ready on port: ${port}`); // eslint-disable-line no-console
+});

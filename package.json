@@ -8,17 +8,15 @@
     "@apollo/gateway": "0.6.2",
     "apollo-datasource-rest": "0.3.2",
     "apollo-server-express": "2.6.1",
-    "apollo-server-micro": "2.6.1",
     "express": "4.17.1",
     "graphql": "14.3.1"
   },
   "devDependencies": {
-    "micro": "9.3.4",
     "wait-on": "3.2.0"
   },
   "scripts": {
     "dev": "npm run spoke & npm run gateway",
-    "spoke": "micro -l tcp://0.0.0.0:3002",
+    "spoke": "node index.js",
     "gateway": "wait-on tcp:3002 && node gateway.js"
   },
   "repository": {

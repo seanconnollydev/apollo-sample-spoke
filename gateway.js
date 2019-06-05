@@ -21,6 +21,6 @@ const server = express();
 
   server.listen(port, (err) => {
     if (err) throw err;
-    console.log(`> Ready on port: ${port}`); // eslint-disable-line no-console
+    console.log(`> Gateway ready on port: ${port}`); // eslint-disable-line no-console
   });
 })();
