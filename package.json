@@ -7,7 +7,7 @@
     "@apollo/federation": "0.6.0",
     "@apollo/gateway": "0.6.2",
     "apollo-datasource-rest": "0.3.2",
-    "apollo-server-express": "2.6.1",
+    "apollo-server-express": "2.14.2",
     "express": "4.17.1",
     "graphql": "14.3.1"
   },
